@@ -1,0 +1,237 @@
+body{
+    font-family: "Poppins", sans-serif;
+    margin: 0 auto;
+    padding: 70px 20px 0 20px;
+    background-color: rgb(252, 230, 196);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: rgba(228, 193, 136, 0.938);
+    backdrop-filter: blur(5px);
+
+    width: 100%;
+    height: 70px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    
+}
+
+
+
+.img-logo{
+    height: 60px;
+    width: 75px;
+    margin-top: 10px;
+    margin-left: 50px;
+    transition: width 0.2s ease , height 0.2s ease;
+
+    &:hover{
+        height: 65px;
+        width: 80px;
+    }
+}
+
+.busca input{
+    border: transparent;
+    outline: 0;
+    border-radius: 12px;
+    padding: 0 20px;
+ 
+    height: 45px;
+    width: 600px;
+
+    font-size: 16px;
+    color: rgb(66, 66, 66);
+
+    margin-bottom: 20px;
+ }
+ .busca  button{
+    position: relative;
+    right: 35px;
+    top: 2px;
+ 
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(73, 73, 73);
+         
+ }
+
+.func li {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+
+    margin-right: 50px;
+}
+.func a {
+    text-decoration:none ;
+    color: rgb(105, 88, 62);
+    font-size: 20px;
+    font-weight: 500;
+    transition: color .2s ease ;
+
+    &:hover{
+        color: rgb(255, 255, 255);  
+        text-decoration: underline;
+        
+    }
+}
+
+
+
+
+
+
+/* aba indicacoes */
+.livrarias-sebos{
+    margin-top: 30px;
+}
+
+#h1-section-parcerias{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+.indica-header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid rgb(134, 134, 133);
+
+}
+.indica-header h1{
+    color: rgb(43, 36, 18);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.card-indicacoes{
+    
+    height: 75px;
+    background-color: rgb(255, 248, 248);
+    box-shadow: 0 4px 7 px 4px rgba(0, 0, 0, 0.082);
+    margin-bottom: 20px;
+    border-radius: 13px;
+    padding: 10px; 
+}
+
+.campo-indica{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.desc-card{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.parte-infe{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 25px;
+}
+
+
+
+
+
+/* sessao recomendacao de livros */
+
+#h1-section-leitura{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+
+
+.livros-recomenda {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 400 px;
+    overflow-x: auto;
+    white-space: nowrap;
+ 
+ }
+ 
+ .img-livro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    height: 350px;
+    width: 180px;
+    background-color: rgb(241, 233, 221);
+    border-radius: 10px;
+    border: 1px solid rgb(92, 92, 92);
+    margin-right: 40px;
+ 
+    box-shadow: 0px 4px 10px  4px rgba(0, 0, 0, 0.336);
+ 
+ }
+ .img-livro img{
+    height: 200px;
+    width: 140px;
+ 
+    border-radius: 6px;
+ }
+ 
+ 
+ .func-livro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+ }
+ .func-livro a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(56, 52, 41);
+    background-color:rgb(216, 216, 164) ;
+    height: 35px;
+    width: 100px;
+    border: 1px solid rgb(182, 182, 146);
+ 
+    transition: 0.3s ease;
+ 
+    &:hover{
+       background-color: rgb(175, 175, 124) ;
+    }
+ }

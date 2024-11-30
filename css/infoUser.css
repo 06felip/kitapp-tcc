@@ -1,0 +1,164 @@
+body{
+    font-family: "Poppins", sans-serif;
+    margin: 0 auto;
+    padding: 70px 0 0 0 ;
+    background-color: rgb(252, 230, 196);
+  
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(228, 193, 136, 0.938);
+    backdrop-filter: blur(5px);
+
+    width: 100%;
+    height: 70px;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(199, 148, 71);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    
+}
+
+
+
+.img-logo{
+    height: 60px;
+    width: 75px;
+    margin-top: 10px;
+    transition: width 0.2s ease , height 0.2s ease;
+
+    &:hover{
+        height: 65px;
+        width: 80px;
+    }
+}
+
+.nav-bar button{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* sessao de informacoes */
+
+.section-user{
+    margin-top: 30px;
+}
+
+.section-user h1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    margin-bottom: 30px;
+    color: rgb(58, 48, 36);
+}
+
+.container-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.info-user{
+    width: 85%;
+    /* background-color: rgb(214, 212, 195); */
+    
+    border-radius: 20px;
+}
+
+
+.fotoUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100px;
+    width: 100px;
+    background-color: rgb(243, 241, 227);
+    border-radius: 50%;
+    border: 2px solid black; 
+}
+
+.fotoUser img{
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.foto-container{
+    background-color: rgba(255, 255, 255, 0.822);
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.082);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+}
+.foto-container p{  
+    width: 300px;
+    margin-left: 30px;
+}
+.foto-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.foto-info button{
+    font-family: "Poppins", sans-serif;
+    margin-top:10px;
+}
+.informacoes form{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.822);
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.082);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    
+}
+
+.inputs{
+    margin-bottom: 20px;
+    height: 20px;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid black; 
+    font-size: 14px;
+    background-color: rgb(249, 250, 252);
+}
+
+.inputSubmit{
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid ;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.5s ease;
+
+    &:hover{
+        background-color: rgb(214, 214, 214);
+    }
+}
+
+
