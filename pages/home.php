@@ -64,7 +64,7 @@ session_start();
         <div class="func">
          
             <li>
-                <ul><a href="home.php">Home</a></ul>
+                <ul><a href="home.php">Homeeeeeeeeeeeeeeeeeeeeeee</a></ul>
                 <ul><a href="salas.php">Salas</a></ul>
                 <ul><a href="indicacoes.php">Área KTP</a></ul>
                 <ul><a href="perfil.php">Perfil</a></ul>
