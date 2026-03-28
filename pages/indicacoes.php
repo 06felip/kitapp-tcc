@@ -4,6 +4,8 @@ include 'funcoes/verificacao-login.php';
 include 'funcoes/indicacao.factory.php';
 include 'funcoes/livros.factory.php';
 
+
+
 $pesquisaLivro = isset($_GET['pesquisaLivro']) ? $_GET['pesquisaLivro'] : '';
 
 if($pesquisaLivro){
@@ -28,7 +30,7 @@ if($resLivro-> num_rows === 0){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Área KTP</title>
     <link rel="stylesheet" href="../css/indicacoes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,56 +132,62 @@ if($resLivro-> num_rows === 0){
         </div> 
 
         <div class="livros-recomenda">
+            <div class="carrosel">
+                <?php while ($livros = $livrosIndica->fetch_assoc()): ?>
+                    <div class="carousel-item"></div>
+                    <div class="img-livro" class="carousel-item">
 
-            <?php while ($livros = $livrosHome->fetch_assoc()): ?>
+                        <!-- php para facilitar busca dos status -->
+                        <?php
+                            $cdLogado = $_SESSION['cd_usuario'];
+                            $cdLivro = $livros['cd_livro'];
+                            $sqlStatus = "SELECT * from tb_usuario_livros where cd_usuario = '$cdLogado' AND cd_livro = '$cdLivro'";
+                            $resStatus = $con->query($sqlStatus);
+                            $statusLivro = $resStatus->fetch_assoc();
+                        ?>
 
-                <div class="img-livro">
-                <?php
-                    $cdLivro = $livros['cd_livro'];
-                    $cdLogado = $_SESSION['cd_usuario'];
-                    $sqlStatus = "SELECT * from tb_usuario_livros where cd_usuario = '$cdLogado' AND cd_livro = '$cdLivro'";
-                    $resStatus = $con->query($sqlStatus);
-                    $statusLivro = $resStatus->fetch_assoc();
-                ?>
+                        <div class="statusLivro">
+                            <form action="funcoes/statuslivro.php" method="POST">
+                                <input type="hidden" name="cd_livro" value="<?php echo $livros['cd_livro']; ?>">
+                                <select name="status" id="status" required>
+                                    <option value="">Status</option>
+                                    <option value="aguardando" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'aguardando' ? 'selected' : ''; ?>>Aguardando</option>
+                                    <option value="lido" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'lido' ? 'selected' : ''; ?>>Lido</option>
+                                    <option value="lendo" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'lendo' ? 'selected' : ''; ?>>Lendo</option>
+                                </select>
+                                <button type="submit">Atualizar</button>
+                            </form>
 
-                <div class="statusLivro">
-                <form action="funcoes/statuslivro.php" method="POST">
-                    <input type="hidden" name="cd_livro" value="<?php echo $livros['cd_livro']; ?>">
-                    <select name="status" id="status" required>
-                        <option value="">Status</option>
-                        <option value="aguardando" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'aguardando' ? 'selected' : ''; ?>>Aguardando</option>
-                        <option value="lido" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'lido' ? 'selected' : ''; ?>>Lido</option>
-                        <option value="lendo" <?= isset($statusLivro['status_livro']) && $statusLivro['status_livro'] === 'lendo' ? 'selected' : ''; ?>>Lendo</option>
-                    </select>
-                    <button type="submit">Atualizar</button>
-                </form>
+                        </div>
 
-                </div>
+                            <div class="imgContainer">
+                                <img src="<?php echo htmlspecialchars($livros['caminho_capa']); ?>" alt="">
+                            </div>
 
-                    <img src="<?php echo htmlspecialchars($livros['caminho_capa']); ?>" alt="">
+                            <div class="func-livro">
+                                <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livros['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
+                                    Baixar PDF
+                                </a>
+                                <a href="funcoes/registrarUsuarioLivro.php?acao=ler&cd_livro=<?php echo $livros['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" target="_blank">
+                                    Ler Online
+                                </a>
+                            </div>
 
-                    <div class="func-livro">
-                    <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livros['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
-                        Baixar PDF
-                    </a>
-                    <a href="funcoes/registrarUsuarioLivro.php?acao=ler&cd_livro=<?php echo $livros['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" target="_blank">
-                        Ler Online
-                    </a>
+                            <div class="resStatus">
+                                <label for="">Status:</label>
+                                <p> <?php echo isset( $statusLivro['status_livro']) ? $statusLivro['status_livro'] :  ' '; ?></p>
+                            </div>
+
                     </div>
 
-                    <div class="resStatus">
-                        <label for="">Status:</label>
-                        <p> <?php echo isset( $statusLivro['status_livro']) ? $statusLivro['status_livro'] :  ' '; ?></p>
-                    </div>
-
-                </div>
-
-            <?php endwhile; ?>
-
-
-
+                <?php endwhile; ?>
+                
+            </div>
+            <button class="anterior" id="buttonLivro" >&#10094;</button>
+            <button class="proximo" id="buttonLivro">&#10095;</button>
 
         </div>
+
 
     </section>
 
@@ -187,6 +195,6 @@ if($resLivro-> num_rows === 0){
    
     
 
-
+    <script src="../js/carrosel.js"></script>
 </body>
 </html>

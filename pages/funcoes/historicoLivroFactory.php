@@ -6,7 +6,7 @@ $con = new mysqli("localhost", "root", "", "dbkitap");
 
  $cdUsuario = $_SESSION['cd_usuario'];
 
- //campo visualiozados livro
+// campo visualiozados livro
 
  $sqlvisualizado = "SELECT * from tb_livros
  INNER JOIN tb_usuario_livros on
@@ -30,18 +30,23 @@ $con = new mysqli("localhost", "root", "", "dbkitap");
 
  //campo visualiozados livro
 
- $sqlLend = "SELECT * from tb_livros
+ $sqlLido = "SELECT * from tb_livros
  INNER JOIN tb_usuario_livros on
  tb_livros.cd_livro = tb_usuario_livros.cd_livro 
   where tb_usuario_livros.cd_usuario = '$cdUsuario' AND status_livro = 'lido'";
- $resLend = $con->query($sqlLend);
+ $resLido = $con->query($sqlLido);
 
  
 
  //campo visualiozados livro
 
- $sqlLido = "SELECT * from tb_livros
+ $sqlLend = "SELECT * from tb_livros
  INNER JOIN tb_usuario_livros on
  tb_livros.cd_livro = tb_usuario_livros.cd_livro 
   where tb_usuario_livros.cd_usuario = '$cdUsuario' AND status_livro = 'lendo'";
- $resLido = $con->query($sqlLido);
+ $resLend = $con->query($sqlLend);
+
+
+
+
+ 

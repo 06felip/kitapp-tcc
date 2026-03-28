@@ -98,64 +98,83 @@ body{
 
 
 /* aba indicacoes */
-.livrarias-sebos{
+/* Estilos gerais */
+.livrarias-sebos {
     margin-top: 30px;
 }
 
-#h1-section-parcerias{
+#h1-section-parcerias {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
     font-size: 30px;
-
     font-weight: 600;
+    color: #4a3f35;
 }
 
-.indica-header{
+.indica-header {
     display: flex;
     justify-content: space-between;
     margin-left: 70px;
     margin-right: 70px;
     margin-bottom: 10px;
-
     border-bottom: 1px solid rgb(134, 134, 133);
-
 }
-.indica-header h1{
+
+.indica-header h1 {
     color: rgb(43, 36, 18);
     font-weight: 500;
     font-size: 20px;
 }
 
-.card-indicacoes{
-    
+/* Card de indicações */
+.card-indicacoes {
     height: 75px;
     background-color: rgb(255, 248, 248);
-    box-shadow: 0 4px 7 px 4px rgba(0, 0, 0, 0.082);
+    box-shadow: 0 4px 7px 4px rgba(0, 0, 0, 0.082);
     margin-bottom: 20px;
     border-radius: 13px;
-    padding: 10px; 
+    padding: 10px;
 }
 
-.campo-indica{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-.desc-card{
+/* Descrição do card */
+.desc-card {
     display: flex;
     justify-content: space-between;
-
 }
 
-.parte-infe{
+/* Campo de indicação dentro do card */
+.campo-indica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.parte-infe {
     width: 100%;
     display: flex;
     justify-content: end;
-    margin-top: 25px;
+   margin-top: 10px;
 }
+
+/* Link "ver catálogo" */
+.parte-infe a {
+    color: #6a4e3d;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 2px solid #6a4e3d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.parte-infe a:hover {
+    background-color: #6a4e3d;
+    color: #fff;
+}
+
 
 
 
@@ -167,71 +186,182 @@ body{
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-    margin-top: 40px;
+    margin-top: 100px;
     font-size: 30px;
-
+    color: #4a3f35;
     font-weight: 600;
 }
 
 
 
-.livros-recomenda {
+/* Estilização Geral */
+.indicacoes {
+    margin-bottom: 100px;
+  }
+  
+
+  
+  /* Contêiner de Livros */
+  .livros-recomenda {
     display: flex;
-    align-items: center;
-    width: 100%;
-    height: 400 px;
-    overflow-x: auto;
+    align-items: flex-start;
+    gap: 20px;
+  
+    overflow-x: hidden;
     white-space: nowrap;
- 
- }
- 
- .img-livro{
+    scroll-behavior: smooth;
+  }
+  
+  .img-livro {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
-    height: 350px;
-    width: 180px;
-    background-color: rgb(241, 233, 221);
-    border-radius: 10px;
-    border: 1px solid rgb(92, 92, 92);
-    margin-right: 40px;
- 
-    box-shadow: 0px 4px 10px  4px rgba(0, 0, 0, 0.336);
- 
- }
- .img-livro img{
-    height: 200px;
+    padding: 20px;
+    height: 400px;
+    width: 200px;
+    background-color: #f8f4ec;
+    border-radius: 15px;
+    border: 1px solid #c1a98e;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  
+  .imgContainer{
+     height: 220px;
     width: 140px;
- 
-    border-radius: 6px;
- }
- 
- 
- .func-livro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  .img-livro img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+  
+  }
+  
+  /* Funcionalidades do Livro */
+  .func-livro {
     width: 100%;
     display: flex;
     flex-direction: column;
-    
- }
- .func-livro a{
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .func-livro a {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    margin-top: 10px;
     text-decoration: none;
     font-size: 14px;
-    color: rgb(56, 52, 41);
-    background-color:rgb(216, 216, 164) ;
-    height: 35px;
-    width: 100px;
-    border: 1px solid rgb(182, 182, 146);
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #b07d62, #d8b89a);
+    height: 40px;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .func-livro a:hover {
+    background: linear-gradient(135deg, #a66b53, #c89b80);
+    transform: scale(1.05);
+  }
+  
+  /* Status do Livro */
+  .statusLivro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .statusLivro select {
+    width: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #c1a98e;
+    background-color: #f5eee4;
+    font-size: 14px;
+    color: #4a3f35;
+  }
+  
+  .statusLivro button {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #b07d62;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .statusLivro button:hover {
+    background-color: #a66b53;
+  }
+  
+  /* Exibição do Status */
+  .resStatus {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6e5b4b;
+  }
+  
+  .resStatus label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #4a3f35;
+  }
+  
+
+  
+  .anterior{
+    position: absolute;
+    left: 6px;
+    z-index: 5;
+ }
+ .proximo{
+    position: absolute;
+    right: 6px;
+ z-index: 5;
+ }
+ #buttonLivro{
+    margin-top: 120px;
+ }
  
-    transition: 0.3s ease;
+ .proximo, .anterior{
+    background-color: #a56e5898;
+    height: 50px;
+    width: 50px;
+    border-radius:50% ;
+    border: 1px solid rgba(255, 192, 192, 0.562);
+    color: white;
+    cursor: pointer;
  
     &:hover{
-       background-color: rgb(175, 175, 124) ;
+       transform: scale(1.07);
+       transition: 0.3s ease;
     }
  }
+ 
+ .carrosel {
+    display: flex;
+    gap: 25px;
+    transition: transform 0.5s ease-in-out;
+ }
+ 
+  
+  
+  
+  
+  

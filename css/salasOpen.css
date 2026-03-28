@@ -47,15 +47,25 @@ body{
     }
 }
 
-.nav-bar button{
-    position: fixed;
-    left: 10px;
-    top: 10px;
+.button{
+    position: absolute;
+    left: 20px;
+    top: 20px;
     cursor: pointer;
+    color: rgb(110, 82, 45);
+    font-size: 24px;
+    font-weight: 600;
+
+    text-decoration: none;
+    transition: 0.2s ease ;
+
+    &:hover{
+        color: white;
+    }
 }
 
 
-/* parte sala chat */
+/* parte sala  */
 
 .salaChat{
     
@@ -159,25 +169,118 @@ body{
 }
 
 .btn-sair-sala{
-margin-left: 70px;
-margin-top: 330px;
+position: absolute;
+bottom: 90px;
+left: 10px;
+cursor: pointer;
+font-weight: 600;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 7%;
+width: 55%;
+border-radius: 10px;
+color: rgb(252, 237, 216);
+background-color: rgb(231, 184, 127);
+
+&:hover{
+    background-color: rgb(202, 151, 89);
+    transition: 0.5s ease-in-out;
+    color:white;
 }
 
-.usuarios-container{
+}
+
+.usuarios-container {
+    border-radius: 10px;
+    border-bottom: 1px solid rgb(219, 198, 138);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+
+.usuarios-container h2 {
+    margin-bottom: 20px;
+   
+    color: rgb(120, 94, 37);
+    text-align: center;
+    border-bottom: 1px solid rgb(219, 198, 138);
+    padding-bottom: 10px;
+}
+
+.usuarios-lista {
+    margin: 0;
+    padding: 0;
+}
+
+.usuario-item {
+
+    width: 90%;
+    background-color: rgb(252, 230, 204);
+    border-bottom: 2px solid rgba(219, 198, 138, 0.7);
+    border-radius: 8px; 
     padding: 15px;
-}
-
-.usuarios-container li{
-    list-style: none;
     margin-bottom: 15px;
-
+    box-shadow:  rgba(0, 0, 0, 0.1);
+    display: flex;  
+    flex-direction: column;
+    gap: 10px;
 }
-.usuarios-container h2{
-    margin-bottom: 15px;
+
+.usuario-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
 }
 
-.tituloSala{
-    padding: 15px;
+.usuario-info strong {
+    color: rgb(180, 143, 88);
+    font-weight: 600;
+    
+}
+
+.status-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-top: 5px;
+}
+
+.status-icon.lendo , .status-icon.lido, .status-icon.baixado  {
+    background-color: #af844c; 
+}
+
+.status-icon.default {
+    background-color: #d3c6b8;
+}
+
+
+
+.info-sala {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(252, 230, 204);
+    border-bottom: 1px solid #e1e1e1;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Estilo para o título e subtítulo */
+.titulo-sala h1 {
+    font-size: 18px;
+    color: #57401e;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.titulo-sala .conteudo {
+    font-size: 22px;
+    color: #363636;
+    margin-bottom: 20px;
+    font-weight: normal;
+    text-transform: capitalize;
 }
 /* modal de confirmacao */
 
@@ -208,15 +311,21 @@ button {
     cursor: pointer;
 }
 
-button#confirmar-saida {
-    background-color: #f44336;
-    color: white;
+#conf, #canc {
+    background-color: #c99b67;
+    color: rgb(48, 48, 48);
+    font-weight: 600;
+
+    &:hover{
+        transition: all 0.3s ease;
+
+        background-color: #685436;
+        color: wheat;
+        transform: scale(1.03);
+    }
 }
 
-button#cancelar-saida {
-    background-color: #4caf50;
-    color: white;
-}
+
    
 
 /* outras abas */
@@ -227,6 +336,12 @@ button#cancelar-saida {
     height: 100%;
     position: fixed;
     right: 0;
+
+    align-content: baseline;
+
+    overflow-y: auto;
+
+   
 }
 .onlineUser{
     background-color: bisque;
@@ -234,5 +349,7 @@ button#cancelar-saida {
     height: 100%;
     position: fixed;
     left: 0;
+
+
     
 }

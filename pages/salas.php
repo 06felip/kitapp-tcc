@@ -9,8 +9,15 @@ $pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
 
 if($pesquisa){
 
-$sql = "SELECT cd_sala, titulo_sala, subtitulo_sala, desc_sala 
-        FROM tb_salas 
+$sql = "SELECT 
+        tb_salas.*, 
+        tb_usuario_salas.status_user AS status_usuario, 
+        (SELECT COUNT(*) FROM tb_usuario_salas WHERE tb_usuario_salas.cd_sala = tb_salas.cd_sala) AS total_usuarios
+        FROM 
+        tb_salas
+        LEFT JOIN 
+        tb_usuario_salas 
+        ON tb_salas.cd_sala = tb_usuario_salas.cd_sala 
         WHERE titulo_sala LIKE '%$pesquisa%' 
         OR subtitulo_sala LIKE '%$pesquisa%' 
         OR desc_sala LIKE '%$pesquisa%'";
@@ -61,7 +68,7 @@ if($res-> num_rows === 0){
                 <ul><a href="salas.php">Salas</a></ul>
                 <ul><a href="indicacoes.php">Área KTP</a></ul>
                 <ul><a href="perfil.php">Perfil</a></ul>
-          </li>
+            </li>
         </div>
         
     </nav>
@@ -117,8 +124,8 @@ if($res-> num_rows === 0){
         <div class="modal-content">
             <span class="close" onclick="fecharModal()">&times;</span>
             <p>deseja entrar sala?</p>
-            <button onclick="entrarSala()">Confirmar</button>
-            <button onclick="fecharModal()">Cancelar</button>
+            <button onclick="entrarSala()" id="conf">Confirmar</button>
+            <button onclick="fecharModal()" id="canc">Cancelar</button>
         </div>
     </div>
 

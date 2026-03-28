@@ -102,21 +102,25 @@ unset($_SESSION['erroLogin'], $_SESSION['erroEmail'], $_SESSION['erroSenha']);
      
     <!-- primeiro modal para cadastro -->
 
-  <div id="fade" class="fade"></div>
-
+  <div id="fade" class="fade">
+  <button class="close-modal">X</button>
+  </div>
+  
     <div class="modal-cadastro">
+    
         <div class="modal-content"> 
+
 
             <div class="cadastro-modal">  
                     <div class="header-cadastro">
                         <h1><div id="cdst">Cadastro</div> <div id="ktp">KITAPP</div></h1>
 
-                        <button id="closeModalBtn" class="close-cadastro">Voltar</button>
+                        
                     </div>
                     
 
                     <p>Olá leitor!Tudo bom?</p>
-                    <p>vamos concluir seu cadastro para comecar essa nova aventura!!</p>
+                    <p>Vamos concluir seu cadastro para comecar essa nova aventura!!</p>
                     
                 
                     <form action="funcoes\cadastrar.php" class="form-cadastro" method="POST" required>
@@ -157,7 +161,7 @@ unset($_SESSION['erroLogin'], $_SESSION['erroEmail'], $_SESSION['erroSenha']);
                         <input type="submit" value="CADASTRAR" id="btnCadastrar">
                         
 
-                        <a href="" id="openModalLogin">ja é um leitor parceiro?<div class="link">faça seu login!</div> </a>  
+                        <a href="" id="openModalLogin">Ja é um leitor parceiro?<div class="link">Faça seu login!</div> </a>  
                     </form>
             </div>  
         </div>
@@ -174,7 +178,7 @@ unset($_SESSION['erroLogin'], $_SESSION['erroEmail'], $_SESSION['erroSenha']);
                      <div class="header-login">
                         <h1><div id="cdst">Login</div> <div id="ktp">KITAPP</div></h1>
 
-                        <button id="closeModalBtnLogin" class="close-login">Voltar</button>
+                       
                     </div>
                        
 
@@ -190,17 +194,12 @@ unset($_SESSION['erroLogin'], $_SESSION['erroEmail'], $_SESSION['erroSenha']);
                             <input type="submit" value="ENTRAR" id="btnLogar">
                            
 
-                            <a href="" id="openModalCad">ainda não possui seu cadastro?<div class="link"> Vamos criar!!</div></a>  
+                            <a href="" id="openModalCad">Ainda não possui seu cadastro?<div class="link"> Vamos criar!!</div></a>  
                         </form>
-                    </div>  
+                </div>  
         </div>
     </div>
 
-    <footer>
-        <div class="footer">
-            <h2>@copyright by KITAPP</h2>
-        </div>
-    </footer>
   
     
     <script>

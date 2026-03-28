@@ -1,7 +1,7 @@
 body{
     font-family: "Poppins", sans-serif;
     margin: 0 auto;
-    padding: 70px 0 0 0;
+    padding: 70px 70px 0 70px;
     background-color: rgb(252, 239, 220);
 }
 
@@ -85,7 +85,9 @@ section h1{
     display: flex;
     justify-content: center;
    
-
+    
+    font-size: 28px;
+    color: #3a3128;
     font-weight: 700;
     
 }
@@ -93,33 +95,44 @@ section h1{
 .pitch{
     display: flex;
     flex-direction: row-reverse;
-
-    margin-left: 70px;
-    margin-right: 70px;
-    margin-top: -30px;
-   
 }
 .pitch video{
     border-radius: 20px;
     margin-top: 30px;
 }
 .pitch p{
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 18px;
+    margin-bottom: 20px;
 }
 .pitch h3{
-    margin-top: 60px;
+    margin-top: 50px;
     font-weight: 600;
     font-size: 24px;
+ 
+    color: #4a3f35;
 }
 .content-pitch{
-    padding: 20px;
+    padding: 20px 25px ;
 }
 
 .content-pitch a{
-    font-size: 19px;
-    margin-top: 50px;
+    font-size: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #cfa16c, #d6a98d);
+    color: #fff;
+    padding: 10px;
+    transition:0.3s ease;
 }
+
+.content-pitch a:hover {
+    background: #b38268;
+
+}
+
 
 
 /* sessao sobre nos */
@@ -128,11 +141,11 @@ section h1{
 .sobre-nos{
     border-top: 2px solid rgb(68, 68, 68);
     margin-top: 150px;
-    margin-left: 70px;
     width: 65%;
 }
 .sobre-nos h2{
     font-weight: 600;
+    color: #4a3f35;
 }
 .sobre-nos p{
     margin-top: 20px;
@@ -151,7 +164,7 @@ section h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.705);
+    background-color: rgba(0, 0, 0, 0.836);
     z-index: 20;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -159,38 +172,44 @@ section h1{
 
 /* Modais de cadastro e login */
 
+.modal-cadastro,
 .modalLogin {
-    display: none;
+    display: none; /* Inicialmente oculto */
     position: fixed;
-    left: 30%;
-    width: 50%;
-    height: 70vh;
-    bottom: 100px;
-    z-index: 30;
-    overflow: hidden;
+    width: 50%; 
+    z-index: 30; 
+    overflow: hidden; 
+    
 }
-.modal-cadastro{
-    display: none;
-    position: fixed;
-    left: 30%;
-    width: 50%;
+
+/* Modal de cadastro */
+.modal-cadastro {
+    left: 35%; /* Centralizado horizontalmente */
     height: 90vh;
-    bottom: 0;
-    z-index: 30;
-    overflow: hidden;
+    width: 30%;
+    bottom: 0; /* Aparece de baixo para cima */
+}
+
+/* Modal de login */
+.modalLogin {
+    left: 35%; /* Centralizado horizontalmente */
+    height: 70vh;
+    width: 30%; /* Altura do modal */
+    bottom: 100px; /* Posição de origem mais alta */
 }
 
 /* Conteúdo dos modais com transição suave */
-.modal-cadastro .modal-content,
-.modalLogin .modal-content {
+ .modal-content,
+ .modal-content {
     position: relative;
     bottom: -100%;
     background-color: rgb(255, 248, 237);
-    width: 60%;
     height: 90%;
     padding: 20px;
     border-radius: 20px;
     transition: bottom 0.3s ease;
+    
+
 }
 
 /* Controle de visibilidade */
@@ -214,6 +233,7 @@ section h1{
     display: flex;
     justify-content: center;
     width: 100%;
+
 }
 .header-cadastro h1 {
     color: rgb(43, 43, 43); 
@@ -226,6 +246,13 @@ section h1{
     color: rgb(145, 117, 82);
     border-bottom: 2px solid rgb(145, 117, 82);
 }
+.cadastro-modal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
 
 .cadastro-modal p {
     display: flex;
@@ -235,56 +262,78 @@ section h1{
 
 /* Formulário de cadastro */
 .form-cadastro {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 20px;
-    gap: 10px   ;
+    gap: 10px;
+}
+.form-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 20px;
 }
 .form-cadastro div{
     height: 45px;
 }
-.form-cadastro a{
+.form-cadastro a,
+.form-login a{
 
     display: flex;
     color: black;
-    height: 10px;
+    width: 100%;
+    
 }
-.form-login a{
- 
-    display: flex;
-    color: black;
-    height: 10px;
-}
+
 .link{
     color: rgb(145, 117, 82);
     
 }
-.form-cadastro input {
+.form-cadastro input,
+.form-login input {
     outline: 0;
     height: 28px;
-    width: 300px;
+    width: 97%;
     border-radius: 5px;
-    border: 1px solid rgb(53, 53, 53);
-    padding: 0 6px;
+    border-left: none;
+    border-bottom: 1px solid rgb(53, 53, 53);
+    border-right:none;
+    border-top: none;
+    background-color: rgb(245, 231, 231);
+    padding: 1px 6px;
+    
 }
-#btnCadastrar {
-    width: 100px;
+
+
+
+#btnCadastrar ,
+#btnLogar{
+    width: 100%;
+    height: 35px;
     cursor: pointer;
+    border: none;
+    box-shadow: none;
+    background-color: rgb(197, 159, 112);
+    color: white;
+    font-weight: 600px;
+}
+#btnLogar{
+    margin-top: 20px;
 }
 
 /* Botão de fechar */
-.close-cadastro,
-.close-login {
-    width: 60px;
+.close-modal {
+    width: 50px;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 20px;
+    right: 20px;
     font-size: 15px;
-    font-family: "Poppins", sans-serif;
-    color: #333333;
+    color: black;
     cursor: pointer;
-    background-color: rgba(134, 134, 134, 0.123);
+    background-color: #eeeeee;
     border-radius: 10px;
     transition: 0.2s ease;
     border: 1px solid rgb(66, 66, 66);
@@ -308,25 +357,8 @@ section h1{
 }
 
 /* Formulário de login */
-.form-login {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    gap: 20px;
-}
-.form-login input {
-    outline: 0;
-    height: 28px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid rgb(53, 53, 53);
-    padding: 0 6px;
-}
-#btnLogar {
-    width: 100px;
-    cursor: pointer;
-    
-}
+
+
 
 .erro{
     font-size: 10px;
@@ -349,7 +381,7 @@ section h1{
     bottom: 0;
     left: 0;
     height: 60px;
-    width: 100vw;
+    width: 100%;
     background-color: rgba(228, 193, 136, 0.938);
 
 }
@@ -360,9 +392,25 @@ section h1{
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 790px) {
+    body{
+        padding: 70px 20px 20px 20px;
+        margin: 0 auto;
+    }
+
+    .func{
+        margin-right: 20px;
+    }
+
+    .sobre-nos{
+        width: 100%;
+    }
+    .sobre-nos p{
+        margin: 15px 20px 0 20px;
+    }
+
     .pitch {
-        flex-direction: column; /* Altera o layout para coluna em telas menores */
+        flex-direction: column; /* Altera o layout para coluna em telas menor*/
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -381,6 +429,21 @@ section h1{
         padding: 10px; /* Reduz o espaçamento do conteúdo */
     }
 
+    .modal-cadastro {
+        left: 13.5%; /* Centralizado horizontalmente */
+        height: 90vh;
+        width: 80%;
+        bottom: 0; /* Aparece de baixo para cima */
+    }
+    
+    /* Modal de login */
+    .modalLogin {
+        left: 13.5%; /* Centralizado horizontalmente */
+        height: 70vh;
+        width: 80%; /* Altura do modal */
+        bottom: 100px; /* Posição de origem mais alta */
+    }
+
     .modal-content {
         width: 80%; /* Ajuste o modal para se adequar melhor a telas menores */
         height: auto; /* Ajusta altura do modal para telas pequenas */
@@ -388,10 +451,10 @@ section h1{
     }
 
     .form-cadastro input {
-        width: 100%; /* Faz os campos do formulário ocuparem toda a largura no modal */
+        width: 97%; /* Faz os campos do formulário ocuparem toda a largura no modal */
     }
 
     .form-login input {
-        width: 100%; /* Ajuste similar no login */
+        width: 97%; /* Ajuste similar no login */
     }
 }

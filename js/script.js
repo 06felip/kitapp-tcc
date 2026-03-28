@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("openModalCad"),
     ];
     const openModalLogin = document.getElementById("openModalLogin");
-    const closeModalCad = document.getElementById("closeModalBtn");
-    const closeModalLogin = document.getElementById("closeModalBtnLogin");
+    const closeModalBtns = document.querySelectorAll(".close-modal");
 
     function openModal(modal) {
         fade.style.display = "block";
@@ -50,14 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
         openModal(modalLogin); // Abre o modal de login
     });
 
-    // Fecha o modal de cadastro
-    closeModalCad.addEventListener("click", function () {
-        closeModal(modalCad);
-    });
-
-    // Fecha o modal de login
-    closeModalLogin.addEventListener("click", function () {
-        closeModal(modalLogin);
+    // Fecha os modais ao clicar nos botões de fechar
+    closeModalBtns.forEach(button => {
+        button.addEventListener("click", function () {
+            closeModal(modalCad);
+            closeModal(modalLogin);
+        });
     });
 
     // Fecha os modais ao clicar no fade

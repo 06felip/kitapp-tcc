@@ -19,7 +19,7 @@ include 'funcoes/buscaInfoSala.php';
 </head>
 <body>
     <nav class="nav-bar">
-        <a href="salas.php"><button>voltar</button></a>
+        <a href="salas.php" class="button">voltar</a>
 
         <div class="logo">
            <a href="home.php"> <img src="../images/Imagem1-removebg-preview.png" class="img-logo" ></a>
@@ -31,22 +31,24 @@ include 'funcoes/buscaInfoSala.php';
          <div class="containersala">       
                 <div class="onlineUser">
                     
-                    
-                    <div class="usuarios-container">
-                        <h2>Usuários participantes</h2>
-
-                        <ul class="usuarios-lista">
-                            <?php while ($usuario = $resultLista->fetch_assoc()): ?>
-                                <li class="usuario-item">
-                                    <div class="usuario-info">
-                                        <p><strong>Usuário:</strong> <?php echo htmlspecialchars($usuario['log_usuario']); ?></p>
-                                        <p><strong>status:</strong> <?php echo isset($usuario['status_livro'])? $usuario['status_livro'] : 'ainda não há interação com o livro'; ?></p>
-                                        
-                                    </div>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
+                <div class="info-sala">
+                    <div class="titulo-sala">
+                        <h1 class="titulo">Título:</h1>
+                        <h3 class="conteudo"><?php echo htmlspecialchars($buscaInfo['titulo_sala']); ?></h3>
+                        <h1 class="subtitulo">Subtítulo:</h1>
+                        <h3 class="conteudo"><?php echo htmlspecialchars($buscaInfo['subtitulo_sala']); ?></h3>
                     </div>
+                    <a class="btn-sair-sala">Sair da Sala</a>
+                </div>  
+                        <!-- Modal de Confirmação -->
+                        <div id="modal-confirmacao" class="modal">
+                            <div class="modal-content">
+                                <p>Tem certeza de que deseja sair desta sala?</p>
+                                <button id="conf">Sim</button>
+                                <button id="canc">Não</button>
+                            </div>
+                        </div>
+                   
                   
 
                 </div>
@@ -75,23 +77,30 @@ include 'funcoes/buscaInfoSala.php';
                 </div>
 
                 <div class="salafunc">
-                    <div class="tituloSala">
-                        <h1>Título:</h1>
-                        <h3><?php echo $buscaInfo['titulo_sala']; ?></h3><br>
-                        <h1>Subtítulo:</h1>
-                        <h3><?php echo $buscaInfo['subtitulo_sala']; ?></h3>
-                    </div>
+                    
 
-                        <button class="btn-sair-sala" >Sair da Sala</button>
-                        
-                        <!-- Modal de Confirmação -->
-                        <div id="modal-confirmacao" class="modal">
-                            <div class="modal-content">
-                                <p>Tem certeza de que deseja sair desta sala?</p>
-                                <button id="confirmar-saida">Sim</button>
-                                <button id="cancelar-saida">Não</button>
-                            </div>
-                        </div>
+                        <div class="usuarios-container">
+                        <h2>Usuários Participantes</h2>
+
+                        <ul class="usuarios-lista">
+                            <?php while ($usuario = $resultLista->fetch_assoc()): ?>
+                                <li class="usuario-item">
+                                    <div class="usuario-info">
+                                   <strong>Usuário:</strong><br> 
+                                   <p> <?php echo htmlspecialchars($usuario['log_usuario']); ?></p>
+                                    <p>
+                                        <span class="status-icon 
+                                            <?php 
+                                                echo isset($usuario['status_livro']) ? strtolower($usuario['status_livro']) : 'default'; 
+                                            ?>"></span>
+                                        <strong>Status:</strong><br> 
+                                        <?php echo isset($usuario['status_livro']) ? $usuario['status_livro'] : 'sem interação com o livro'; ?>
+                                    </p>
+                                    </div>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </div>
                 </div>
         </div>  
     </section>
@@ -103,8 +112,8 @@ include 'funcoes/buscaInfoSala.php';
     <script>
          document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById("modal-confirmacao");
-        const confirmarSaida = document.getElementById("confirmar-saida");
-        const cancelarSaida = document.getElementById("cancelar-saida");
+        const confirmarSaida = document.getElementById("conf");
+        const cancelarSaida = document.getElementById("canc");
 
     
 

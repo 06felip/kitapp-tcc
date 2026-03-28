@@ -19,27 +19,29 @@ if($resultBusca && $resultBusca->num_rows > 0){
 
 //agora vou fazer a lista dos usuarios que estao na sala
 
-$sqlLista = "SELECT 
+$sqlListaStatus = "SELECT 
     tb_usuario.log_usuario, 
-    tb_usuario_salas.cd_usuario, 
-    tb_usuario_salas.cd_sala, 
-    tb_usuario_livros.status_livro,
-    tb_salas.*
+    tb_usuario.cd_usuario, 
+    tb_usuario_livros.status_livro, 
+    tb_salas.cd_livro 
 FROM 
     tb_usuario_salas
-JOIN 
-    tb_usuario ON tb_usuario_salas.cd_usuario = tb_usuario.cd_usuario 
+INNER JOIN 
+    tb_usuario
+    ON tb_usuario_salas.cd_usuario = tb_usuario.cd_usuario
+INNER JOIN 
+    tb_salas
+    ON tb_usuario_salas.cd_sala = tb_salas.cd_sala
 LEFT JOIN 
-    tb_usuario_livros 
-    ON tb_salas.cd_livro = tb_usuario_livros.cd_livro 
-    AND tb_usuario_salas.cd_usuario = tb_usuario_livros.cd_usuario
-JOIN 
-    tb_salas ON tb_usuario_salas.cd_sala = tb_salas.cd_sala 
+    tb_usuario_livros
+    ON tb_usuario_livros.cd_usuario = tb_usuario.cd_usuario
+    AND tb_usuario_livros.cd_livro = tb_salas.cd_livro
 WHERE 
-    tb_salas.cd_sala = $idSala 
-ORDER BY 
-    tb_usuario.log_usuario
+    tb_salas.cd_sala = $idSala
+GROUP BY 
+    tb_usuario.cd_usuario
 ";
 
 
-$resultLista = $con->query($sqlLista);
+
+$resultLista = $con->query($sqlListaStatus);

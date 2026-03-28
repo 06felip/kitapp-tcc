@@ -1,6 +1,7 @@
 <?php
 
-include 'funcoes/historicoLivroFactory.php';
+include_once 'funcoes/historicoLivroFactory.php';
+include 'funcoes/verificacao-login.php';    
 
 $cdLogado = $_SESSION['cd_usuario'];
 ?>
@@ -16,7 +17,7 @@ $cdLogado = $_SESSION['cd_usuario'];
 </head>
 <body>
     <nav class="nav-bar">
-        <a href="perfil.php"><button>Voltar</button></a>
+        <a href="perfil.php" class="button">Voltar</a>
 
         <div class="logo">
            <a href="home.php"> <img src="../images/Imagem1-removebg-preview.png" class="img-logo" ></a>
@@ -26,11 +27,25 @@ $cdLogado = $_SESSION['cd_usuario'];
 
     
         <div class="introHistorico">
-            <p>aqui esta sua prateleira de livros, cada sessao com os livros de acordo com o status que vc impos anteriormente, mas caso queira voce pode atualizar seus status de leitura a qualquer momento!!</p>
-            <p>seus status ficaram aparente nas salas dos livros que voce faz parte, para que voce possa saber como esta o seu e os status de leitura dos outros usuarios</p>
+            <p>aqui está sua prateleira de livros, cada sessão com os livros de acordo com o status que você impos anteriormente, mas caso queira você pode atualizar seus status de leitura a qualquer momento!</p>
+            <p>seu status ficará aparente nas salas dos livros que você faz parte, mostrando como está o seu e os status de leitura dos demais usuários, facilitando a interação.</p>
         </div>
 
-        <section class="indicacoes">
+        <div class="buttonStatus">
+            
+                <div>
+                    <p>escolha um status para visualizar os livros que voçê teve alguma interação</p>
+                </div>
+            <div class="buttonContainer">
+                <button onclick="toggleContainer('visualizado')">Visualizado</button>
+                <button onclick="toggleContainer('aguardando')">Aguardando</button>
+                <button onclick="toggleContainer('lido')">Lido</button>
+                <button onclick="toggleContainer('lendo')">Lendo</button>
+            </div>      
+        </div>
+
+        
+        <section  class="indicacoes" id="visualizado">
         <h2>livros com status Visualizado</h2>
 
         <div class="livros-recomenda">
@@ -58,8 +73,9 @@ $cdLogado = $_SESSION['cd_usuario'];
                     </form>
 
                     </div>
-
+                        <div class="imgContainer">
                         <img src="<?php echo htmlspecialchars($livrosVisu['caminho_capa']); ?>">
+                        </div>
 
                         <div class="func-livro">
                         <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livrosVisu['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
@@ -85,7 +101,7 @@ $cdLogado = $_SESSION['cd_usuario'];
         </div>
 
     </section>
-        <section class="indicacoes">
+        <section  class="indicacoes" id="aguardando" style="display:none;">
         <h2>livros com status Aguardando</h2>
 
         <div class="livros-recomenda">
@@ -113,8 +129,9 @@ $cdLogado = $_SESSION['cd_usuario'];
                     </form>
 
                     </div>
-
+                        <div class="imgContainer">
                         <img src="<?php echo htmlspecialchars($livrosAguard['caminho_capa']); ?>">
+                        </div>
 
                         <div class="func-livro">
                         <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livrosAguard['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
@@ -140,9 +157,9 @@ $cdLogado = $_SESSION['cd_usuario'];
         </div>
 
     </section>
-        <section class="indicacoes">
+    <section  class="indicacoes" id="lendo" style="display:none;">
         <h2>livros com status Lendo</h2>
-
+        
         <div class="livros-recomenda">
 
                 <?php while ($livrosLend = $resLend->fetch_assoc()): ?>
@@ -168,9 +185,9 @@ $cdLogado = $_SESSION['cd_usuario'];
                     </form>
 
                     </div>
-
+                        <div class="imgContainer">
                         <img src="<?php echo htmlspecialchars($livrosLend['caminho_capa']); ?>">
-
+                        </div>
                         <div class="func-livro">
                         <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livrosLend['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
                             Baixar PDF
@@ -195,7 +212,7 @@ $cdLogado = $_SESSION['cd_usuario'];
         </div>
 
     </section>
-        <section class="indicacoes">
+        <section  class="indicacoes" id="lido" style="display:none;">
         <h2>livros com status Lido</h2>
 
         <div class="livros-recomenda">
@@ -223,9 +240,9 @@ $cdLogado = $_SESSION['cd_usuario'];
                     </form>
 
                     </div>
-
+                        <div class="imgContainer">
                         <img src="<?php echo htmlspecialchars($livrosLido['caminho_capa']); ?>">
-
+                        </div>
                         <div class="func-livro">
                         <a href="funcoes/registrarUsuarioLivro.php?acao=baixar&cd_livro=<?php echo $livrosLido['cd_livro']; ?>&caminho=../<?php echo urlencode($livros['caminho_livro']); ?>" download >
                             Baixar PDF
@@ -252,6 +269,26 @@ $cdLogado = $_SESSION['cd_usuario'];
     </section>
 
 
+    <script>
+    function toggleContainer(statusId) {
+        // Esconde todos os contêineres
+        const containers = document.querySelectorAll('.indicacoes');
+        containers.forEach(container => {
+            container.style.display = 'none';
+        });
+
+        // Mostra apenas o contêiner selecionado
+        const selectedContainer = document.getElementById(statusId);
+        if (selectedContainer) {
+            selectedContainer.style.display = 'block';
+        }
+    }
+
+    // Exibe o primeiro status como padrão
+    document.addEventListener('DOMContentLoaded', () => {
+        toggleContainer('visualizado');
+    });
+</script>
 
    
 </body>

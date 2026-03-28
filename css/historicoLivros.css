@@ -47,106 +47,207 @@ body{
     }
 }
 
-.nav-bar button{
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    cursor: pointer;
+.button{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  color: rgb(110, 82, 45);
+  font-size: 24px;
+  font-weight: 600;
+
+  text-decoration: none;
+  transition: 0.2s ease ;
+
+  &:hover{
+      color: white;
+  }
 }
 
+/* asdasdasd */
 
-/* //dsasdasdasdadasddas */
 
 .introHistorico{
     margin-top: 50px;
-    width: 80%;
-    background-color: antiquewhite;
-    padding: 15px;
-    border-radius: 10px;
+    width: 60%;
+    background-color:  rgb(255, 250, 239);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(121, 121, 121, 0.781);
+      transition: 0.5s ease;
+   position: relative;
+   left: 18%;
+    &:hover{
+      transform: translateY(-5px);
+    }
 }
 
-.indicacoes{
-    margin-bottom: 100px;
- }    
+.buttonStatus{
+  margin-top: 50px;
+  width: 30%;
+  background-color:  rgb(247, 240, 227);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 10px rgba(121, 121, 121, 0.781);
+    transition: 0.5s ease;
+ position: relative;
+ left: 32%;
+
  
-  .indicacoes h2{
-     margin-left: 100px;
-     margin-bottom: 20px;
-     margin-top: 100px;
-     font-weight: 500;
-     font-size: 28px;
-     border-bottom: 1px solid rgb(192, 160, 160);
-  }
- 
- 
- .livros-recomenda {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 400px;
-    overflow-x: auto;
-    white-space: nowrap;
- 
- }
- 
- 
- .img-livro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
-    height: 350px;
-    width: 180px;
-    background-color: rgb(241, 233, 221);
-    border-radius: 10px;
-    border: 1px solid rgb(92, 92, 92);
-    margin-right: 40px;
- 
-    box-shadow: 0px 4px 10px  4px rgba(0, 0, 0, 0.336);
- 
- 
- }
- .img-livro img{
-    height: 200px;
-    width: 140px;
- 
-    border-radius: 6px;
- }
- 
- 
- .func-livro{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    
- }
- .func-livro a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    margin-top: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    color: rgb(56, 52, 41);
-    background-color:rgb(216, 216, 164) ;
-    height: 35px;
-    width: 100px;
-    border: 1px solid rgb(182, 182, 146);
- 
+}
+.buttonContainer{
+  display: flex;
+  justify-content: space-between;
+}
+.buttonContainer button{
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border: transparent;
+  border-radius: 15px;
+  background-color: #b07d62;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+
+  &:hover{
+    transform: scale(1.05);
+    background-color:  #805b48;
     transition: 0.3s ease;
- 
-    &:hover{
-       background-color: rgb(175, 175, 124) ;
-    }
+  }
+}
+.indicacoes {
+   margin-bottom: 100px;
  }
  
- #status{
-    width: 80px;
+ .indicacoes h2 {
+   margin-left: 100px;
+   margin-bottom: 20px;
+   margin-top: 100px;
+   font-weight: 600;
+   font-size: 32px;
+   color: #4a3f35;
+   border-bottom: 2px solid #c1a98e;
+   padding-bottom: 10px;
+ }
+ 
+ /* Contêiner de Livros */
+ .livros-recomenda {
+   display: flex;
+   align-items: flex-start;
+   gap: 20px;
+ 
+   overflow-x: auto;
+   overflow-y: hidden;
+   white-space: nowrap;
+   scroll-behavior: smooth;
+ }
+ 
+ .img-livro {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ 
+   padding: 15px;
+   height: 300px;
+   width: 150px;
+   background-color: #f8f4ec;
+   border-radius: 15px;
+   border: 1px solid #c1a98e;
+   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
  }
  
  
+ .imgContainer{
+  height: 170px;
+  width: 110px;
+ }
+ .img-livro img {
+   height: 100%;
+   width: 100%;
  
+   border-radius: 10px;
+   border: 1px solid #ddd;
+ }
  
+ /* Funcionalidades do Livro */
+ .func-livro {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-top: 10px;
+ }
  
+ .func-livro a {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px;
+   text-decoration: none;
+   font-size: 14px;
+   font-weight: bold;
+   color: #fff;
+   background: linear-gradient(135deg, #b07d62, #d8b89a);
+   height: 30px;
+   width: 100%;
+   transition: background 0.3s ease, transform 0.2s ease;
+ }
+ 
+ .func-livro a:hover {
+   background: linear-gradient(135deg, #a66b53, #c89b80);
+   transform: scale(1.05);
+ }
+ 
+ /* Status do Livro */
+ .statusLivro {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   align-items: center;
+ }
+ 
+ .statusLivro select {
+   width: 15px;
+   padding: 6px;
+   border-radius: 8px;
+   border: 1px solid #c1a98e;
+   background-color: #f5eee4;
+   font-size: 14px;
+   color: #4a3f35;
+ }
+ 
+ .statusLivro button {
+   padding: 6px 10px;
+   background-color: #b07d62;
+   color: #fff;
+   border: none;
+   border-radius: 8px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background 0.3s ease;
+ }
+ 
+ .statusLivro button:hover {
+   background-color: #a66b53;
+ }
+ 
+ /* Exibição do Status */
+ .resStatus {
+   margin-top: 6px;
+   text-align: center;
+   font-size: 12px;
+   font-weight: bold;
+   color: #6e5b4b;
+ }
+ 
+ .resStatus label {
+   display: block;
+   margin-bottom: 3px;
+   font-size: 10px;
+   color: #4a3f35;
+ }
+ 
+  

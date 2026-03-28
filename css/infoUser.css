@@ -47,11 +47,22 @@ body{
     }
 }
 
-.nav-bar button{
-    position: fixed;
-    left: 10px;
-    top: 10px;
+.button{
+    position: absolute;
+    left: 20px;
+    top: 20px;
     cursor: pointer;
+    color: rgb(110, 82, 45);
+    font-size: 24px;
+    font-weight: 600;
+
+    text-decoration: none;
+    transition: 0.2s ease ;
+
+    &:hover{
+        color: white;
+    }
+    
 }
 
 /* sessao de informacoes */
@@ -66,7 +77,7 @@ body{
     width: 100%;
 
     margin-bottom: 30px;
-    color: rgb(58, 48, 36);
+    color: #4a3f35;
 }
 
 .container-info{
@@ -78,7 +89,7 @@ body{
 
 
 .info-user{
-    width: 85%;
+    width: 70%;
     /* background-color: rgb(214, 212, 195); */
     
     border-radius: 20px;
@@ -144,7 +155,7 @@ body{
     border-radius: 5px;
     border: 1px solid black; 
     font-size: 14px;
-    background-color: rgb(249, 250, 252);
+    background-color: rgb(255, 248, 242);
 }
 
 .inputSubmit{

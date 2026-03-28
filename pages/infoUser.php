@@ -19,7 +19,7 @@ session_start();
 </head>
 <body>
     <nav class="nav-bar">
-        <a href="perfil.php"><button>Voltar</button></a>
+        <a href="perfil.php"  class="button">voltar</a>
 
         <div class="logo">
            <a href="home.php"> <img src="../images/Imagem1-removebg-preview.png" class="img-logo" ></a>
@@ -34,7 +34,7 @@ session_start();
 
                 <div class="info-user">
 
-                    <div class="foto-container">
+                    <!-- <div class="foto-container">
                         <div class="foto-info">        
                                 <div class="fotoUser">
                                     <img src="../images/user-regular.svg" >
@@ -43,7 +43,7 @@ session_start();
                         </div> 
                                 <p>Personalize sua conta com uma foto. Sua foto de perfil aparecerá para outros usuários dentro das salas.</p>
                         
-                    </div>
+                    </div> -->
 
                         
                             <div class="informacoes">

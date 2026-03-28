@@ -47,122 +47,202 @@ body{
     }
 }
 
-.nav-bar button{
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    cursor: pointer;
+.button{
+   position: absolute;
+   left: 20px;
+   top: 20px;
+   cursor: pointer;
+   color: rgb(110, 82, 45);
+   font-size: 24px;
+   font-weight: 600;
+ 
+   text-decoration: none;
+   transition: 0.2s ease ;
+ 
+   &:hover{
+       color: white;
+   }
 }
 
 /* salas participantes */
 
-.container-salas{
-    display: flex;
-    align-items: center;
-   
-    width: 100%;
-    overflow-x: auto;
-    
+.introHistorico{
+   margin-top: 50px;
+   width: 60%;
+   background-color:  rgb(255, 250, 239);
+   padding: 20px;
+   border-radius: 20px;
+   box-shadow: 0 8px 10px rgba(121, 121, 121, 0.781);
+     transition: 0.5s ease;
+  position: relative;
+  left: 18%;
+   &:hover{
+     transform: translateY(-5px);
+   }
+}
 
-    height: 270px;
+.h1Ativas{
+   margin-left: 100px;
+   margin-bottom: 20px;
+   margin-top: 100px;
+   font-weight: 600;
+   font-size: 32px;
+   color: #4a3f35;
+   border-bottom: 2px solid #c1a98e;
+   padding-bottom: 10px;
 }
 
 
- .caixas {
-    display: flex;
-    gap: 25px;
- }
+
+.container{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   width: 100%;
+   overflow-x: hidden; 
+   overflow-y: hidden;
+   height: 250px;
+   gap: 20px;
+   padding: 20px 0; 
+   scrollbar-width: thin;
+   scrollbar-color: transparent;
+}
+
+.anterior{
+   position: absolute;
+   left: 6px;
+   z-index: 5;
+}
+.proximo{
+   position: absolute;
+   right: 6px;
+z-index: 5;
+}
+#buttonLivro{
+   margin-top: 120px;
+}
+
+.proximo, .anterior{
+   background-color: #a56e5898;
+   height: 50px;
+   width: 50px;
+   border-radius:50% ;
+   border: 1px solid rgba(255, 192, 192, 0.562);
+   color: white;
+   cursor: pointer;
+
+   &:hover{
+      transform: scale(1.07);
+      transition: 0.3s ease;
+   }
+}
 
 
- .caixas a{
-    text-decoration: none;
-    color: black;
- }
- 
- 
-  
- .sala{
+.carrosel {
+   display: flex;
+   gap: 25px;
+   transition: transform 0.5s ease-in-out;
+}
+
+.carrosel a {
+   text-decoration: none;
+   color: black;
+}
+
+/* Estilos do card */
+.sala {
    height: 210px;
    width: 310px;
    background-color: rgb(255, 248, 248);
    border-radius: 10px;
    border: 1px solid rgb(49, 49, 49);
-
-   box-shadow: 0 4px 10px  4px rgba(0, 0, 0, 0.212);
-
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.212);
    transform: translateY(0);
    transition: transform 0.3s ease;
-
-   &:hover{
-
-       transform: scale(1.05);
-       
-   }
-}
-
-/* SALAS CONTEUDO */
-
-
-.sala-content{
-   padding: 15px;
-
-   object-fit: cover;
-}
-
-.header-sala{
+   position: relative;
    display: flex;
-
-  width: 100%; 
-
-  margin-bottom: 10px;
-  
+   flex-direction: column;
+   overflow: hidden; 
 }
-.header-sala h1{
-   font-weight: 500;
-   font-size: 24px;
 
+.sala:hover {
+   transform: scale(1.05);
+}
+
+/* Estilos do conteúdo do card */
+.sala-content {
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+
+   height: 100%;
+}
+
+.header-sala {
+   display: flex;
+   border-bottom: 1px solid black;
+   padding-bottom: 10px;
+}
+
+.header-sala h1 {
+   font-weight: 500;
+   font-size: 20px;
+   width: 180px; /* Ajusta a largura do título */
    word-wrap: break-word;
    white-space: normal;
-
-   
-   
 }
-.header-sala h3{
+
+.header-sala h3 {
    font-size: 12px;
-
- 
-   
+   font-weight: 500;
+   color:  rgb(133, 110, 75); /* Cor do subtítulo */
 }
 
-.sala-content p{
-   font-size: 14px;
-   margin: 10px 0;
-
-   width: 100%;
-   max-width: 100%;
-   height: 100px;
-   
-   word-wrap: break-word;  
-   white-space: normal;
-   text-overflow: ellipsis;
-
-}
-
-.img-sala{
- 
+/* Estilo da imagem dentro do card */
+.img-sala {
    height: 90px;
    width: 70px;
    margin-right: 15px;
-
    background-color: rgb(99, 83, 59);
    display: flex;
    justify-content: center;
    align-items: center;
-
+   border-radius: 8px; /* Borda arredondada na imagem */
 }
 
-.img-sala img{
+.img-sala img {
    height: 100%;
    width: 100%;
-   object-fit: cover;
+   border-radius: 8px; /* Borda arredondada na imagem */
 }
+
+/* Estilo do status da sala */
+.statusSala {
+   position: absolute;
+   right: 10px;
+   top: 0;
+   font-size: 10px;
+   font-weight: 600;
+   color: #28a745; /* Cor verde para o status */
+}
+
+/* Estilo do contador de usuários */
+.contador-usuarios p {
+   position: absolute;
+   right: 10px;
+   bottom: -40px;
+   font-size: 10px;
+   font-weight: 600;
+   color: #777; 
+}
+
+/* Estilo da descrição da sala */
+.sala-content p {
+   font-size: 14px;
+   height: 60px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   color: #555; 
+   line-height: 1.5;
+}
+

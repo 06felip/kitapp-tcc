@@ -18,6 +18,7 @@
             // Atualiza o status se o registro já existir
             $sqlUpdate = "UPDATE tb_usuario_livros SET status_livro = '$status' WHERE cd_livro = '$cdLivro' AND cd_usuario = '$cdUsuario'";
             $resUpdate = $con->query($sqlUpdate);
+            echo "<script>alert('status atualizado com sucesso!');</script>";
             echo "<script>window.location.href = '../home.php';</script>";
         } else{
             echo "<script>alert('Voce precisa ter umas interacao com o livro para poder criar um status');</script>";
